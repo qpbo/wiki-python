@@ -1,0 +1,53 @@
+site_name: Modern Python Wiki
+site_url: https://tousuario.github.io/wiki-python/
+site_author: Carliyo
+
+# Configuración del Tema (Material)
+theme:
+  name: material
+  language: es
+  # Características de interfaz de usuario (UI)
+  features:
+    - navigation.instant      # Navegación estilo SPA (sin recargas)
+    - navigation.tracking     # Actualiza la URL al hacer scroll en la TOC
+    - navigation.top          # Botón "Volver arriba"
+    - navigation.expand       # Menú lateral expandido por defecto
+    - search.suggest          # Sugerencias mientras escribes en el buscador
+    - search.highlight        # Resalta resultados de búsqueda
+    - content.code.copy       # Botón para copiar bloques de código
+  # Paleta de colores (Modo claro/oscuro automático)
+  palette:
+    - scheme: default
+      primary: teal
+      accent: purple
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    - scheme: slate
+      primary: teal
+      accent: lime
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+
+# Extensiones de Markdown (La parte técnica avanzada)
+markdown_extensions:
+  - admonition                # Cajas de alerta (Info, Warning, etc.)
+  - pymdownx.details          # Bloques colapsables
+  - pymdownx.superfences:     # Permite anidar bloques de código y diagramas
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:          # Pestañas de contenido
+      alternate_style: true
+  - pymdownx.highlight:       # Resaltado de sintaxis
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets         # Permite incluir archivos externos
+  - toc:
+      permalink: true         # Icono de ancla en los títulos
+
+# Plugins extra (Opcional, para validación)
+plugins:
+  - search
