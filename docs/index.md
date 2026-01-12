@@ -92,3 +92,55 @@ graph TD
     F -- Sí --> G[Celebrar];
     F -- No --> H[Depurar / StackOverflow];
     H --> C;
+---
+
+### FASE 4: Despliegue Profesional con GitHub Actions
+
+Para la matrícula de honor, no usaremos el comando manual. Usaremos **Integración Continua (CI)**. Esto significa que cada vez que guardes cambios en GitHub, la web se actualizará sola.
+
+#### Paso 1: Preparar el Repositorio
+1.  Crea un repositorio en GitHub (ej: `wiki-python`).
+2.  Inicia git en tu carpeta local:
+    ```bash
+    git init
+    git add .
+    git commit -m "Initial commit"
+    git branch -M main
+    git remote add origin https://github.com/TU_USUARIO/wiki-python.git
+    git push -u origin main
+    ```
+
+#### Paso 2: Crear el Workflow de Actions
+Crea la siguiente estructura de carpetas y archivo en tu proyecto: `.github/workflows/ci.yml`.
+
+Copia este contenido dentro de `ci.yml`:
+
+```yaml
+name: publicacion-docs
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install mkdocs-material
+      - run: mkdocs gh-deploy --force
