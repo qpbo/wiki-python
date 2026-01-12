@@ -335,6 +335,51 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="4. Diagramas como Código (Mermaid)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fase-4-despliegue-profesional-con-github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FASE 4: Despliegue Profesional con GitHub Actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FASE 4: Despliegue Profesional con GitHub Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-1-preparar-el-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1: Preparar el Repositorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-2-crear-el-workflow-de-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2: Crear el Workflow de Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -412,6 +457,51 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="4. Diagramas como Código (Mermaid)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fase-4-despliegue-profesional-con-github-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FASE 4: Despliegue Profesional con GitHub Actions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FASE 4: Despliegue Profesional con GitHub Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-1-preparar-el-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1: Preparar el Repositorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-2-crear-el-workflow-de-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2: Crear el Workflow de Actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -512,6 +602,53 @@ graph TD
     F -- Sí --&gt; G[Celebrar];
     F -- No --&gt; H[Depurar / StackOverflow];
     H --&gt; C;</p>
+<hr />
+<h3 id="fase-4-despliegue-profesional-con-github-actions">FASE 4: Despliegue Profesional con GitHub Actions<a class="headerlink" href="#fase-4-despliegue-profesional-con-github-actions" title="Permanent link">&para;</a></h3>
+<p>Para la matrícula de honor, no usaremos el comando manual. Usaremos <strong>Integración Continua (CI)</strong>. Esto significa que cada vez que guardes cambios en GitHub, la web se actualizará sola.</p>
+<h4 id="paso-1-preparar-el-repositorio">Paso 1: Preparar el Repositorio<a class="headerlink" href="#paso-1-preparar-el-repositorio" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Crea un repositorio en GitHub (ej: <code>wiki-python</code>).</li>
+<li>Inicia git en tu carpeta local:
+    <code>bash
+    git init
+    git add .
+    git commit -m "Initial commit"
+    git branch -M main
+    git remote add origin https://github.com/TU_USUARIO/wiki-python.git
+    git push -u origin main</code></li>
+</ol>
+<h4 id="paso-2-crear-el-workflow-de-actions">Paso 2: Crear el Workflow de Actions<a class="headerlink" href="#paso-2-crear-el-workflow-de-actions" title="Permanent link">&para;</a></h4>
+<p>Crea la siguiente estructura de carpetas y archivo en tu proyecto: <code>.github/workflows/ci.yml</code>.</p>
+<p>Copia este contenido dentro de <code>ci.yml</code>:</p>
+<p>```yaml
+name: publicacion-docs
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" &gt;&gt; $GITHUB_ENV
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install mkdocs-material
+      - run: mkdocs gh-deploy --force</p>
 
 
 
