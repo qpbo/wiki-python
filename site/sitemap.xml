@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://tousuario.github.io/wiki-python/</loc>
-         <lastmod>2026-01-12</lastmod>
+         <loc>https://qpbo.github.io/wiki-python/</loc>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
+         <loc>https://qpbo.github.io/wiki-python/avanzado/</loc>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
+         <loc>https://qpbo.github.io/wiki-python/fundamentos/</loc>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
+         <loc>https://qpbo.github.io/wiki-python/proyectos/</loc>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
+         <loc>https://qpbo.github.io/wiki-python/recursos/</loc>
+         <lastmod>2026-01-13</lastmod>
     </url>
 </urlset>
