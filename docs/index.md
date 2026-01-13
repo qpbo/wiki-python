@@ -1,146 +1,340 @@
-# Bienvenido a la Python Wiki
+# Bienvenido a Python Wiki Premium :fontawesome-brands-python:
 
-Esta documentación demuestra el uso avanzado de **MkDocs** con **Material Theme**. A continuación, verás ejemplos de interactividad, diagramas y sintaxis compleja.
+<div class="hero-section fade-in-up">
+  <h1 class="hero-title">
+    <span class="gradient-text">Aprende Python</span><br>
+    de forma Moderna e Interactiva
+  </h1>
+  <p class="hero-subtitle">
+    Documentación profesional con ejemplos interactivos, diagramas animados y diseño premium
+  </p>
+  <div class="hero-cta">
+    <a href="#primeros-pasos" class="btn-premium btn-primary">
+      :rocket: Comenzar Ahora
+    </a>
+    <a href="fundamentos/" class="btn-premium btn-secondary">
+      :books: Ver Fundamentos
+    </a>
+  </div>
+</div>
 
 ---
 
-## 1. Pestañas de Código (Content Tabs)
+## :sparkles: Características Destacadas
 
-Esta funcionalidad permite mostrar la misma solución en diferentes lenguajes sin ocupar espacio extra. Ideal para comparar sintaxis.
+<div class="features-grid fade-in-up">
+  <div class="feature-card">
+    <div class="feature-icon">:zap:</div>
+    <h3 class="feature-title">Rápido y Moderno</h3>
+    <p>Navegación instantánea y diseño responsivo con las últimas tecnologías web</p>
+  </div>
+  
+  <div class="feature-card">
+    <div class="feature-icon">:art:</div>
+    <h3 class="feature-title">Diseño Premium</h3>
+    <p>Glassmorphism, animaciones suaves y efectos visuales impresionantes</p>
+  </div>
+  
+  <div class="feature-card">
+    <div class="feature-icon">:bulb:</div>
+    <h3 class="feature-title">Ejemplos Interactivos</h3>
+    <p>Aprende con ejemplos de código en múltiples lenguajes y diagramas animados</p>
+  </div>
+</div>
 
-=== "Python"
+---
 
-    ```python
+## :bar_chart: Python en Números
+
+<div class="stats-grid fade-in">
+  <div class="stat-card scale-in">
+    <span class="stat-number" data-count="100">0</span>
+    <span class="stat-label">Ejemplos de Código</span>
+  </div>
+  
+  <div class="stat-card scale-in stagger-1">
+    <span class="stat-number" data-count="50">0</span>
+    <span class="stat-label">Diagramas</span>
+  </div>
+  
+  <div class="stat-card scale-in stagger-2">
+    <span class="stat-number" data-count="30">0</span>
+    <span class="stat-label">Ejercicios</span>
+  </div>
+  
+  <div class="stat-card scale-in stagger-3">
+    <span class="stat-number" data-count="10">0</span>
+    <span class="stat-label">Proyectos</span>
+  </div>
+</div>
+
+---
+
+## :fire: Primeros Pasos
+
+### 1. Pestañas de Código Interactivas
+
+Compara la misma funcionalidad en diferentes lenguajes:
+
+=== "Python :fontawesome-brands-python:"
+
+    ```python title="saludos.py" linenums="1" hl_lines="3"
     def saludar(nombre):
-        """Saluda al usuario."""
-        return f"Hola, {nombre}"
+        """Función que saluda al usuario."""
+        return f"¡Hola, {nombre}! 👋"
 
-    print(saludar("Mundo"))
+    # Uso
+    mensaje = saludar("Mundo")
+    print(mensaje)  # Output: ¡Hola, Mundo! 👋
     ```
 
-=== "JavaScript"
+=== "JavaScript :fontawesome-brands-js:"
 
-    ```javascript
+    ```javascript title="saludos.js" linenums="1" hl_lines="3"
     function saludar(nombre) {
-        return `Hola, ${nombre}`;
+      // Función que saluda al usuario
+      return `¡Hola, ${nombre}! 👋`;
     }
 
-    console.log(saludar("Mundo"));
+    // Uso
+    const mensaje = saludar("Mundo");
+    console.log(mensaje); // Output: ¡Hola, Mundo! 👋
     ```
 
-=== "C++"
+=== "C++ :material-language-cpp:"
 
-    ```cpp
+    ```cpp title="saludos.cpp" linenums="1" hl_lines="6"
     #include <iostream>
+    #include <string>
     using namespace std;
 
+    string saludar(string nombre) {
+        return "¡Hola, " + nombre + "! 👋";
+    }
+
     int main() {
-        string nombre = "Mundo";
-        cout << "Hola, " << nombre;
+        string mensaje = saludar("Mundo");
+        cout << mensaje << endl;  // Output: ¡Hola, Mundo! 👋
         return 0;
     }
     ```
 
----
+=== "Rust :fontawesome-solid-gear:"
 
-## 2. Bloques Colapsables (Details)
+    ```rust title="saludos.rs" linenums="1" hl_lines="2"
+    fn saludar(nombre: &str) -> String {
+        format!("¡Hola, {}! 👋", nombre)
+    }
 
-Útil para ejercicios, soluciones o contenido extenso que no debe saturar la vista inicial.
-
-??? note "Ejercicio: ¿Cuál es la salida de `print(3 * '7')`?"
-    **Solución:**
-    
-    La salida es `777`.
-    
-    En Python, multiplicar un string por un entero repite el string esa cantidad de veces.
-
-??? failure "Click para ver un error común"
-    No intentes dividir por cero.
-    ```python
-    x = 1 / 0  # ZeroDivisionError
+    fn main() {
+        let mensaje = saludar("Mundo");
+        println!("{}", mensaje);  // Output: ¡Hola, Mundo! 👋
+    }
     ```
 
 ---
 
-## 3. Admonitions (Alertas)
+### 2. Bloques Colapsables con Ejercicios
 
-Cajas semánticas para resaltar información crítica.
+??? success "Ejercicio 1: Tipos de Datos"
+    **Pregunta:** ¿Cuál es la salida de `print(3 * '7')`?
+    
+    ??? tip "Pista"
+        En Python, multiplicar un string por un número repite el string.
+    
+    ??? check "Solución"
+        ```python
+        print(3 * '7')  # Output: 777
+        ```
+        
+        El operador `*` repite el string `'7'` tres veces, resultando en `'777'`.
 
-!!! tip "Consejo Pro"
-    Utiliza entornos virtuales (`venv`) para aislar las dependencias de tus proyectos.
-
-!!! warning "Cuidado con la Indentación"
-    Python es estricto. Un espacio mal colocado puede romper tu código.
-
-!!! danger "Zona Peligrosa"
-    Borrar la base de datos de producción un viernes a las 17:00.
+??? example "Ejercicio 2: Comprensión de Listas"
+    **Desafío:** Crear una lista de cuadrados del 1 al 10 usando list comprehension.
+    
+    ??? check "Solución"
+        ```python
+        cuadrados = [x**2 for x in range(1, 11)]
+        print(cuadrados)
+        # Output: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+        ```
 
 ---
 
-## 4. Diagramas como Código (Mermaid)
+### 3. Cajas de Alerta Profesionales
 
-Generación de gráficos directamente desde Markdown, sin necesidad de imágenes externas.
+!!! tip "Consejo Pro :trophy:"
+    Usa **entornos virtuales** (`venv`) para aislar las dependencias de cada proyecto:
+    
+    ```bash
+    python -m venv mi_entorno
+    # Windows
+    mi_entorno\Scripts\activate
+    # Linux/Mac
+    source mi_entorno/bin/activate
+    ```
+
+!!! warning "Cuidado con la Indentación :warning:"
+    Python es **estricto con los espacios**. Un error común:
+    
+    ```python
+    def mi_funcion():
+    print("Error!")  # ❌ IndentationError
+    ```
+    
+    Correcto:
+    
+    ```python
+    def mi_funcion():
+        print("Correcto!")  # ✅
+    ```
+
+!!! danger "Zona Peligrosa :fire:"
+    Nunca hagas esto en producción:
+    
+    ```python
+    import os
+    os.system("rm -rf /")  # ⚠️ NUNCA ejecutes esto
+    ```
+
+!!! info "Sabías que... :bulb:"
+    Python fue creado por **Guido van Rossum** y lanzado en 1991. El nombre viene de *Monty Python*, no de la serpiente.
+
+---
+
+### 4. Diagramas Interactivos con Mermaid
+
+#### Flujo de Desarrollo Python
 
 ```mermaid
-graph TD
-    A[Inicio] --> B{¿Está instalado Python?};
-    B -- Sí --> C[Escribir Código];
-    B -- No --> D[Instalar Python];
-    D --> B;
-    C --> E[Ejecutar Script];
-    E --> F{¿Funciona?};
-    F -- Sí --> G[Celebrar];
-    F -- No --> H[Depurar / StackOverflow];
-    H --> C;
+graph TB
+    A[Inicio] --> B{¿Python Instalado?}
+    B -->|Sí| C[Crear Proyecto]
+    B -->|No| D[Instalar Python]
+    D --> C
+    C --> E[Crear Entorno Virtual]
+    E --> F[Instalar Dependencias]
+    F --> G[Escribir Código]
+    G --> H[Ejecutar Script]
+    H --> I{¿Funciona?}
+    I -->|Sí| J[Celebrar 🎉]
+    I -->|No| K[Debuggear 🐛]
+    K --> L{¿Error Conocido?}
+    L -->|Sí| G
+    L -->|No| M[Stack Overflow]
+    M --> G
+    J --> N[Commit & Push]
+    N --> O[Fin]
+    
+    style A fill:#667eea,color:#fff
+    style O fill:#10b981,color:#fff
+    style J fill:#10b981,color:#fff
+    style K fill:#ef4444,color:#fff
+    style M fill:#f59e0b,color:#fff
+```
+
+#### Arquitectura de una Aplicación Python
+
+```mermaid
+graph LR
+    A[Usuario] -->|HTTP Request| B[Web Server]
+    B --> C[Framework]
+    C --> D[Business Logic]
+    D --> E[Database]
+    E --> D
+    D --> C
+    C --> B
+    B -->|HTTP Response| A
+    
+    C -.->|Cache| F[Redis]
+    D -.->|Queue| G[Celery]
+    
+    style A fill:#6366f1,color:#fff
+    style B fill:#8b5cf6,color:#fff
+    style C fill:#ec4899,color:#fff
+    style E fill:#10b981,color:#fff
+```
+
 ---
 
-### FASE 4: Despliegue Profesional con GitHub Actions
+### 5. Atajos de Teclado
 
-Para la matrícula de honor, no usaremos el comando manual. Usaremos **Integración Continua (CI)**. Esto significa que cada vez que guardes cambios en GitHub, la web se actualizará sola.
+Aprende los shortcuts más útiles:
 
-#### Paso 1: Preparar el Repositorio
-1.  Crea un repositorio en GitHub (ej: `wiki-python`).
-2.  Inicia git en tu carpeta local:
-    ```bash
-    git init
-    git add .
-    git commit -m "Initial commit"
-    git branch -M main
-    git remote add origin https://github.com/TU_USUARIO/wiki-python.git
-    git push -u origin main
-    ```
+- ++ctrl+c++ : Copiar texto seleccionado
+- ++ctrl+v++ : Pegar
+- ++ctrl+shift+p++ : Paleta de comandos (VS Code)
+- ++f5++ : Ejecutar/Depurar en IDE
+- ++ctrl+slash++ : Comentar/Descomentar línea
+- ++alt+shift+f++ : Formatear documento
 
-#### Paso 2: Crear el Workflow de Actions
-Crea la siguiente estructura de carpetas y archivo en tu proyecto: `.github/workflows/ci.yml`.
+---
 
-Copia este contenido dentro de `ci.yml`:
+### 6. Lista de Tareas Interactiva
 
-```yaml
-name: publicacion-docs
-on:
-  push:
-    branches:
-      - main
-permissions:
-  contents: write
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Configure Git Credentials
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-      - uses: actions/setup-python@v5
-        with:
-          python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-      - uses: actions/cache@v4
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
-      - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
+Progreso de aprendizaje:
+
+- [x] Instalar Python
+- [x] Configurar entorno virtual
+- [ ] Aprender sintaxis básica
+- [ ] Dominar estructuras de datos
+- [ ] Crear primer proyecto
+- [ ] Contribuir a Open Source
+
+---
+
+## :rocket: Empecemos tu Viaje
+
+<div class="features-grid">
+  <div class="glass-card hover-lift">
+    <h3>:beginner: Principiantes</h3>
+    <p>Comienza desde cero con nuestros tutoriales paso a paso</p>
+    <a href="fundamentos/" class="btn-premium btn-primary" style="margin-top: 1rem;">Ir a Fundamentos →</a>
+  </div>
+  
+  <div class="glass-card hover-lift">
+    <h3>:mortar_board: Avanzados</h3>
+    <p>Profundiza en decoradores, generators y async/await</p>
+    <a href="avanzado/" class="btn-premium btn-primary" style="margin-top: 1rem;">Temas Avanzados →</a>
+  </div>
+  
+  <div class="glass-card hover-lift">
+    <h3>:wrench: Proyectos</h3>
+    <p>Aplica tus conocimientos en proyectos reales</p>
+    <a href="proyectos/" class="btn-premium btn-primary" style="margin-top: 1rem;">Ver Proyectos →</a>
+  </div>
+</div>
+
+---
+
+## :link: Enlaces Rápidos
+
+<div class="features-grid">
+  <div class="feature-card">
+    <h4>:books:Documentación Oficial</h4>
+    <p><a href="https://docs.python.org/es/" target="_blank">Python Docs</a></p>
+  </div>
+  
+  <div class="feature-card">
+    <h4>:package: Paquetes</h4>
+    <p><a href="https://pypi.org/" target="_blank">PyPI Repository</a></p>
+  </div>
+  
+  <div class="feature-card">
+    <h4>:newspaper: Noticias</h4>
+    <p><a href="https://realpython.com/" target="_blank">Real Python</a></p>
+  </div>
+</div>
+
+---
+
+!!! quote "Cita Inspiradora :star:"
+    > "Python es un lenguaje de programación que te permite trabajar más rápido e integrar tus sistemas de manera más efectiva."
+    > 
+    > — **Guido van Rossum**, Creador de Python
+
+---
+
+<p class="text-center gradient-text" style="font-size: 1.5rem; font-weight: 700; margin-top: 3rem;">
+¡Feliz Coding! :heart:
+</p>

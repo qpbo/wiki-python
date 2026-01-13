@@ -1,53 +1,192 @@
-site_name: Modern Python Wiki
-site_url: https://tousuario.github.io/wiki-python/
+site_name: Python Wiki Premium
+site_url: https://qpbo.github.io/wiki-python/
 site_author: Carliyo
+site_description: Documentación profesional de Python con diseño moderno y características interactivas
+
+# Repository Information
+repo_url: https://github.com/qpbo/wiki-python
+repo_name: qpbo/wiki-python
+edit_uri: edit/main/docs/
 
 # Configuración del Tema (Material)
 theme:
   name: material
   language: es
-  # Características de interfaz de usuario (UI)
+  
+  # Custom fonts
+  font:
+    text: Inter
+    code: Fira Code
+  
+  # Features (UI/UX)
   features:
-    - navigation.instant      # Navegación estilo SPA (sin recargas)
-    - navigation.tracking     # Actualiza la URL al hacer scroll en la TOC
-    - navigation.top          # Botón "Volver arriba"
-    - navigation.expand       # Menú lateral expandido por defecto
-    - search.suggest          # Sugerencias mientras escribes en el buscador
-    - search.highlight        # Resalta resultados de búsqueda
-    - content.code.copy       # Botón para copiar bloques de código
-  # Paleta de colores (Modo claro/oscuro automático)
+    # Navigation
+    - navigation.instant        # SPA-like navigation
+    - navigation.instant.progress  # Progress indicator
+    - navigation.tracking       # URL tracking
+    - navigation.tabs           # Top-level tabs
+    - navigation.tabs.sticky    # Sticky tabs
+    - navigation.sections       # Sections in sidebar
+    - navigation.expand         # Expand all sections
+    - navigation.top            # Back to top button
+    - navigation.footer         # Footer navigation
+    - navigation.indexes        # Section index pages
+    
+    # Table of Contents
+    - toc.follow                # Follow TOC scrolling
+    - toc.integrate             # Integrate TOC in navigation
+    
+    # Search
+    - search.suggest            # Search suggestions
+    - search.highlight          # Highlight search terms
+    - search.share              # Share search results
+    
+    # Code blocks
+    - content.code.copy         # Copy button
+    - content.code.annotate     # Code annotations
+    - content.tabs.link         # Link content tabs
+    - content.tooltips          # Improved tooltips
+  
+  # Color palette (Light/Dark mode)
   palette:
     - scheme: default
-      primary: teal
-      accent: purple
+      primary: indigo
+      accent: pink
       toggle:
         icon: material/brightness-7
         name: Cambiar a modo oscuro
     - scheme: slate
-      primary: teal
-      accent: lime
+      primary: indigo
+      accent: pink
       toggle:
         icon: material/brightness-4
         name: Cambiar a modo claro
+  
+  # Icons
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/code-braces
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/light-bulb-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
 
-# Extensiones de Markdown (La parte técnica avanzada)
+# Navigation Structure
+nav:
+  - Inicio: index.md
+  - Fundamentos de Python: fundamentos.md
+  - Conceptos Avanzados: avanzado.md
+  - Proyectos: proyectos.md
+  - Recursos: recursos.md
+
+# Markdown Extensions (Advanced syntax)
 markdown_extensions:
-  - admonition                # Cajas de alerta (Info, Warning, etc.)
-  - pymdownx.details          # Bloques colapsables
-  - pymdownx.superfences:     # Permite anidar bloques de código y diagramas
+  # Core extensions
+  - abbr                        # Abbreviations
+  - admonition                  # Alert boxes
+  - attr_list                   # HTML attributes
+  - def_list                    # Definition lists
+  - footnotes                   # Footnotes
+  - md_in_html                  # Markdown in HTML
+  - toc:
+      permalink: true           # Permalink icons
+      permalink_title: Enlace permanente
+      toc_depth: 3
+  
+  # PyMdown Extensions
+  - pymdownx.arithmatex:        # Math formulas
+      generic: true
+  - pymdownx.betterem:          # Better emphasis
+      smart_enable: all
+  - pymdownx.caret              # Superscript and insert
+  - pymdownx.mark               # Highlighting
+  - pymdownx.tilde              # Subscript and delete
+  - pymdownx.critic             # Track changes
+  - pymdownx.details            # Collapsible blocks
+  - pymdownx.emoji:             # Emoji support
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:         # Code highlighting
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite       # Inline code highlighting
+  - pymdownx.keys               # Keyboard keys
+  - pymdownx.magiclink:         # Automatic links
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: qpbo
+      repo: wiki-python
+  - pymdownx.smartsymbols       # Smart symbols
+  - pymdownx.snippets:          # Include files
+      auto_append:
+        - includes/abbreviations.md
+      check_paths: true
+  - pymdownx.superfences:       # Advanced code blocks
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed:          # Pestañas de contenido
+  - pymdownx.tabbed:            # Content tabs
       alternate_style: true
-  - pymdownx.highlight:       # Resaltado de sintaxis
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets         # Permite incluir archivos externos
-  - toc:
-      permalink: true         # Icono de ancla en los títulos
+      combine_header_slug: true
+  - pymdownx.tasklist:          # Task lists
+      custom_checkbox: true
 
-# Plugins extra (Opcional, para validación)
+# Plugins
 plugins:
-  - search
+  - search:
+      lang: es
+      separator: '[\s\-\.]+'
+
+# Custom CSS and JavaScript
+extra_css:
+  - stylesheets/custom.css
+  - stylesheets/animations.css
+
+extra_javascript:
+  - javascripts/particles.js
+  - javascripts/custom.js
+
+# Extra configuration
+extra:
+  # Social links
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/qpbo
+      name: GitHub Profile
+    - icon: fontawesome/brands/python
+      link: https://www.python.org/
+      name: Python.org
+  
+  # Analytics feedback (optional)
+  analytics:
+    feedback:
+      title: ¿Te fue útil esta página?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: Sí, muy útil
+          data: 1
+          note: ¡Gracias por tu feedback!
+        - icon: material/emoticon-sad-outline
+          name: Podría mejorar
+          data: 0
+          note: Gracias, trabajaremos en mejorarlo
+  
+  # Version info
+  version:
+    provider: mike
+
+# Copyright
+copyright: |
+  Copyright &copy; 2026 <a href="https://github.com/qpbo" target="_blank" rel="noopener">Carliyo</a> 
+  - Creado con <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">Material for MkDocs</a>
