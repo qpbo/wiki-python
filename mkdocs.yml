@@ -127,10 +127,7 @@ markdown_extensions:
       user: qpbo
       repo: wiki-python
   - pymdownx.smartsymbols       # Smart symbols
-  - pymdownx.snippets:          # Include files
-      auto_append:
-        - includes/abbreviations.md
-      check_paths: true
+  - pymdownx.snippets           # Include files
   - pymdownx.superfences:       # Advanced code blocks
       custom_fences:
         - name: mermaid
